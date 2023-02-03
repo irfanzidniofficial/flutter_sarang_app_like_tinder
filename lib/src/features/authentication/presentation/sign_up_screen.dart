@@ -3,6 +3,7 @@ import 'package:flutter_sarang_app_like_tinder/src/common_widgets/banner_widget.
 import 'package:flutter_sarang_app_like_tinder/src/common_widgets/custom_bottom_widget.dart';
 import 'package:flutter_sarang_app_like_tinder/src/common_widgets/custom_text_button_widget.dart';
 import 'package:flutter_sarang_app_like_tinder/src/common_widgets/custom_text_field.dart';
+import 'package:flutter_sarang_app_like_tinder/src/features/authentication/presentation/sign_up_age_job_screen.dart';
 import 'package:flutter_sarang_app_like_tinder/src/theme_manager/values_manager.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -59,7 +60,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               CustomButtonWidget(
                 title: 'Get Started',
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    SignUpAgeJobScreen.routeName,
+                  );
+                },
               ),
               const SizedBox(
                 height: AppSize.s20,
