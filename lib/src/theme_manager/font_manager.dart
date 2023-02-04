@@ -22,4 +22,5 @@ class FontSizeManager {
   static const double f22 = 22.0;
   static const double f24 = 24.0;
   static const double f26 = 26.0;
+  static const double f28 = 28.0;
 }

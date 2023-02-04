@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sarang_app_like_tinder/src/common_widgets/match_button_widget.dart';
+
+import 'match_button_widget.dart';
 
 class ExplorePeopleButtonWidget extends StatelessWidget {
   const ExplorePeopleButtonWidget({super.key});

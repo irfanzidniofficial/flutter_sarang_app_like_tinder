@@ -20,11 +20,11 @@ class MatchButtonWidget extends StatelessWidget {
       child: Container(
         width: dimension,
         height: dimension,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage(
-              '${AssetImageIconManager.assetPath}/iconPath',
+              '${AssetImageIconManager.assetPath}/$iconPath',
             ),
           ),
         ),
