@@ -20,7 +20,7 @@ class ExplorePeopleScreen extends StatelessWidget {
           children: [
             const ExplorePeopleAppBarWidget(),
             const SizedBox(
-              height: AppSize.s50,
+              height: AppSize.s40,
             ),
             Expanded(
               child: Column(
@@ -32,7 +32,7 @@ class ExplorePeopleScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: AppSize.s50,
+              height: AppSize.s40,
             ),
             const ExplorePeopleButtonWidget(),
           ],

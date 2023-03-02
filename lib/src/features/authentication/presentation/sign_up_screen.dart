@@ -31,9 +31,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: AppPadding.p50,
-          horizontal: AppPadding.p24,
+        padding: const EdgeInsets.only(
+          top: AppPadding.p50,
+          right: AppPadding.p24,
+          left: AppPadding.p24,
         ),
         child: SingleChildScrollView(
           child: Column(

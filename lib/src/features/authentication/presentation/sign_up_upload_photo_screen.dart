@@ -43,6 +43,9 @@ class _SignUpUploadPhotoScreenState extends State<SignUpUploadPhotoScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              const SizedBox(
+                height: 50,
+              ),
               const LogoAndTagLineWidget(),
               const SizedBox(
                 height: AppSize.s50,

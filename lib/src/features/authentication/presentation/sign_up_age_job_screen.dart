@@ -36,6 +36,9 @@ class _SignUpAgeJobScreenState extends State<SignUpAgeJobScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              const SizedBox(
+                height: 50,
+              ),
               const BannerWidget(),
               CustomTextFieldWidget(
                 labelName: 'Occupation',
