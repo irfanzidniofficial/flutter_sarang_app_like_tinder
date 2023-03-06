@@ -23,7 +23,7 @@ class SignUpUploadPhotoScreen extends StatefulWidget {
 class _SignUpUploadPhotoScreenState extends State<SignUpUploadPhotoScreen> {
   File? image;
 
-  void getImageProfile(getImageFrom source) async {
+  void getImageProfile(GetImageFrom source) async {
     final result = await ImagePickerUtil.getImage(source);
     if (result != null) {
       setState(() {
@@ -38,13 +38,12 @@ class _SignUpUploadPhotoScreenState extends State<SignUpUploadPhotoScreen> {
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: AppPadding.p24,
-          vertical: AppPadding.p40,
         ),
         child: SingleChildScrollView(
           child: Column(
             children: [
               const SizedBox(
-                height: 50,
+                height: 80,
               ),
               const LogoAndTagLineWidget(),
               const SizedBox(
@@ -64,7 +63,7 @@ class _SignUpUploadPhotoScreenState extends State<SignUpUploadPhotoScreen> {
                           children: [
                             IconButton(
                               onPressed: () {
-                                getImageProfile(getImageFrom.camera);
+                                getImageProfile(GetImageFrom.camera);
                               },
                               icon: const Icon(
                                 Icons.camera,
@@ -73,7 +72,7 @@ class _SignUpUploadPhotoScreenState extends State<SignUpUploadPhotoScreen> {
                             ),
                             IconButton(
                               onPressed: () {
-                                getImageProfile(getImageFrom.gallery);
+                                getImageProfile(GetImageFrom.gallery);
                               },
                               icon: const Icon(
                                 Icons.photo,

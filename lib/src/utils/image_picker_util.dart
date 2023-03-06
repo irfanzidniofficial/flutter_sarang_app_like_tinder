@@ -1,14 +1,14 @@
 import 'package:image_picker/image_picker.dart';
 
-enum getImageFrom {
+enum GetImageFrom {
   gallery,
   camera,
 }
 
 class ImagePickerUtil {
-  static Future<XFile?> getImage(getImageFrom source) async {
+  static Future<XFile?> getImage(GetImageFrom source) async {
     final pickedFile = await ImagePicker().pickImage(
-      source: source == getImageFrom.camera
+      source: source == GetImageFrom.camera
           ? ImageSource.camera
           : ImageSource.gallery,
       maxHeight: 1800,

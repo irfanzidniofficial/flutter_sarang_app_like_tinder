@@ -11,7 +11,7 @@ class UploadPhotoWidget extends StatelessWidget {
     required this.image,
   });
 
-  File? image;
+  final File? image;
 
   @override
   Widget build(BuildContext context) {
