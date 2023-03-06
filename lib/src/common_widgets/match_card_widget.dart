@@ -25,7 +25,7 @@ class MatchCardWidget extends StatelessWidget {
             border: Border.all(
               width: 10.0,
               color: ColorManager.secondary,
-              strokeAlign: StrokeAlign.inside,
+              strokeAlign: BorderSide.strokeAlignInside,
             ),
             borderRadius: BorderRadius.circular(AppSize.s70),
           ),
