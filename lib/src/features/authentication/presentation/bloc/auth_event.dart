@@ -5,10 +5,10 @@ abstract class AuthEvent {}
 
 class RegisterAuthEvent extends AuthEvent {
   final UserAccount userAccount;
-  final bool iseRegister;
+  final bool isRegister;
 
   RegisterAuthEvent(
     this.userAccount,
-    this.iseRegister,
+    this.isRegister,
   );
 }

@@ -11,7 +11,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<RegisterAuthEvent>((event, emit) async {
       emit(AuthLoading());
       DataUserAccountLocal.setDataUserAccountToStorage(event.userAccount);
-      UserAccountRegister.setUserAccountRegister(event.iseRegister);
+      UserAccountRegister.setUserAccountRegister(event.isRegister);
       await Future.delayed(
         const Duration(
           seconds: 2,
@@ -20,7 +20,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(
         AuthSuccess(
           event.userAccount,
-          event.iseRegister,
+          event.isRegister,
         ),
       );
     });
