@@ -36,8 +36,7 @@ class _AppScreenState extends State<AppScreen> {
       debugShowCheckedModeBanner: false,
       title: 'Material App',
       theme: getApplicationThemeData(),
-      home: isRegister ? ExplorePeopleScreen() : SignUpScreen(),
-     
+      home: isRegister ? const ExplorePeopleScreen() : const SignUpScreen(),
       routes: {
         SignUpScreen.routeName: (context) => const SignUpScreen(),
         SignUpUploadPhotoScreen.routeName: (context) =>
