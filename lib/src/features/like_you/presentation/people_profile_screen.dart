@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sarang_app_like_tinder/src/common_widgets/custom_bottom_widget.dart';
+import 'package:flutter_sarang_app_like_tinder/src/features/like_you/data/data_dummy_widget.dart';
 import 'package:flutter_sarang_app_like_tinder/src/features/like_you/domain/user.dart';
 import 'package:flutter_sarang_app_like_tinder/src/theme_manager/values_manager.dart';
 
 import '../../../common_widgets/people_identity_widget.dart';
 import '../../../common_widgets/profile_detail_image_widget.dart';
-import '../../../theme_manager/asset_image_icon_manager.dart';
 
 class PeopleProfileScreen extends StatelessWidget {
   static const String routeName = '/people-profile';
@@ -35,6 +35,7 @@ class PeopleProfileScreen extends StatelessWidget {
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
+                  final hobby = dataHobbyDummy[index];
                   return Container(
                     width: 120.0,
                     height: 80.0,
@@ -45,15 +46,16 @@ class PeopleProfileScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(
                         AppSize.s18,
                       ),
-                      image: const DecorationImage(
+                      image: DecorationImage(
                         fit: BoxFit.cover,
                         image: AssetImage(
-                            '${AssetImageIconManager.assetPath}/hobby2_image.png'),
+                          hobby,
+                        ),
                       ),
                     ),
                   );
                 },
-                itemCount: 4,
+                itemCount: dataHobbyDummy.length,
               ),
             ),
             const SizedBox(

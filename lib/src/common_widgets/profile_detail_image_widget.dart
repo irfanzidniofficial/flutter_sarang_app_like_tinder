@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_sarang_app_like_tinder/src/common_widgets/match_button_widget.dart';
+import 'package:flutter_sarang_app_like_tinder/src/features/like_you/presentation/explore_people_screen.dart';
 import 'package:flutter_sarang_app_like_tinder/src/theme_manager/style_manager.dart';
 
 import '../theme_manager/font_manager.dart';
@@ -57,7 +58,10 @@ class ProfileDetailImageWidget extends StatelessWidget {
               MatchButtonWidget(
                 dimension: 20.0,
                 iconPath: 'icon_close_circle.png',
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, ExplorePeopleScreen.routeName, (route) => false);
+                },
               ),
             ],
           ),
