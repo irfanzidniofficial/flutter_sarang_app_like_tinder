@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sarang_app_like_tinder/src/common_widgets/custom_bottom_widget.dart';
+import 'package:flutter_sarang_app_like_tinder/src/features/like_you/domain/user.dart';
 import 'package:flutter_sarang_app_like_tinder/src/theme_manager/values_manager.dart';
 
 import '../../../common_widgets/people_identity_widget.dart';
@@ -12,15 +13,20 @@ class PeopleProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = ModalRoute.of(context)?.settings.arguments as User;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const ProfileDetailImageWidget(),
+            ProfileDetailImageWidget(
+              imagePath: user.imagePath,
+            ),
             const SizedBox(
               height: AppSize.s30,
             ),
-            const PeopleIdentityWidget(),
+            PeopleIdentityWidget(
+              user: user,
+            ),
             Container(
               height: 80.0,
               margin: const EdgeInsets.only(
@@ -42,8 +48,7 @@ class PeopleProfileScreen extends StatelessWidget {
                       image: const DecorationImage(
                         fit: BoxFit.cover,
                         image: AssetImage(
-                          '${AssetImageIconManager.assetPath}/hobby1_image.png',
-                        ),
+                            '${AssetImageIconManager.assetPath}/hobby2_image.png'),
                       ),
                     ),
                   );

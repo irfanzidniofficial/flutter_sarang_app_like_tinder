@@ -5,10 +5,15 @@ import 'package:flutter_sarang_app_like_tinder/src/theme_manager/font_manager.da
 import 'package:flutter_sarang_app_like_tinder/src/theme_manager/style_manager.dart';
 import 'package:flutter_sarang_app_like_tinder/src/theme_manager/values_manager.dart';
 
-import '../theme_manager/asset_image_icon_manager.dart';
+import '../features/like_you/domain/user.dart';
 
 class PeopleLovedCardWidget extends StatelessWidget {
-  const PeopleLovedCardWidget({super.key});
+  const PeopleLovedCardWidget({
+    super.key,
+    required this.user,
+  });
+
+  final User user;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +26,7 @@ class PeopleLovedCardWidget extends StatelessWidget {
           Navigator.pushNamed(
             context,
             PeopleProfileScreen.routeName,
+            arguments: user,
           );
         },
         child: Container(
@@ -40,25 +46,25 @@ class PeopleLovedCardWidget extends StatelessWidget {
             leading: Container(
               height: 70.0,
               width: 70.0,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: AssetImage(
-                    '${AssetImageIconManager.assetPath}/people_love3_image.png',
+                    user.imagePath,
                   ),
                 ),
               ),
             ),
             title: Text(
-              'Ismirada',
+              user.fullName,
               style: getWhiteTextStyle(
                 fontSize: FontSizeManager.f20,
                 fontWeight: FontWeightManager.semibold,
               ),
             ),
             subtitle: Text(
-              '24, Doctor',
+              '${user.age}, ${user.occupation}',
               style: getGrey60TextStyle(),
             ),
           ),

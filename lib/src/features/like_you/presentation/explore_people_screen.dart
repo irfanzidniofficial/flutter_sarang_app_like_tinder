@@ -6,8 +6,10 @@ import 'package:flutter_sarang_app_like_tinder/src/common_widgets/explore_people
 import 'package:flutter_sarang_app_like_tinder/src/common_widgets/match_card_widget.dart';
 import 'package:flutter_sarang_app_like_tinder/src/features/authentication/data/data_user_account_local.dart';
 import 'package:flutter_sarang_app_like_tinder/src/features/authentication/domain/user_account.dart';
-import 'package:flutter_sarang_app_like_tinder/src/features/like_you/presentation/bloc/explore_people_bloc.dart';
+import 'package:flutter_sarang_app_like_tinder/src/features/like_you/presentation/bloc/people_loved/people_loved_bloc.dart';
 import 'package:flutter_sarang_app_like_tinder/src/theme_manager/values_manager.dart';
+
+import 'bloc/explore_people/explore_people_bloc.dart';
 
 class ExplorePeopleScreen extends StatefulWidget {
   static const String routeName = '/explore-people';
@@ -57,7 +59,7 @@ class _ExplorePeopleScreenState extends State<ExplorePeopleScreen> {
               imagePath: account?.imageProfile,
             ),
             const SizedBox(
-              height: AppSize.s20,
+              height: AppSize.s28,
             ),
             BlocBuilder<ExplorePeopleBloc, ExplorePeopleState>(
               builder: (context, state) {
@@ -75,17 +77,46 @@ class _ExplorePeopleScreenState extends State<ExplorePeopleScreen> {
                       children: [
                         Expanded(
                           child: AppinioSwiper(
+                            direction: AppinioSwiperDirection.top,
+                            onSwipe: (
+                              int index,
+                              AppinioSwiperDirection direction,
+                            ) {
+                              if (direction == AppinioSwiperDirection.top) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Yey!, you match with ${users[index].fullName}',
+                                    ),
+                                    duration: const Duration(
+                                      milliseconds: 500,
+                                    ),
+                                  ),
+                                );
+                                if (direction != AppinioSwiperDirection.left &&
+                                    direction != AppinioSwiperDirection.right &&
+                                    direction !=
+                                        AppinioSwiperDirection.bottom) {
+                                  context.read<PeopleLovedBloc>().add(
+                                        AddPeopleLoved(
+                                          user: users[index],
+                                        ),
+                                      );
+                                }
+                              }
+                            },
                             controller: cardController,
                             onEnd: () {
                               context
                                   .read<ExplorePeopleBloc>()
                                   .add(OnExplorePeopleEventCalled());
                             },
+                            padding: EdgeInsets.zero,
                             cards: cards,
                           ),
                         ),
                         const SizedBox(
-                          height: AppSize.s38,
+                          height: AppSize.s40,
                         ),
                         ExplorePeopleButtonWidget(
                           controller: cardController,

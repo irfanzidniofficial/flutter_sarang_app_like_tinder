@@ -1,15 +1,19 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:flutter_sarang_app_like_tinder/src/common_widgets/match_button_widget.dart';
 import 'package:flutter_sarang_app_like_tinder/src/theme_manager/style_manager.dart';
 
-import '../theme_manager/asset_image_icon_manager.dart';
 import '../theme_manager/font_manager.dart';
 import '../theme_manager/values_manager.dart';
 
 class ProfileDetailImageWidget extends StatelessWidget {
   const ProfileDetailImageWidget({
     Key? key,
+    required this.imagePath,
   }) : super(key: key);
+
+  final String imagePath;
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +22,11 @@ class ProfileDetailImageWidget extends StatelessWidget {
         Container(
           width: double.infinity,
           height: 420.0,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
               image: AssetImage(
-                '${AssetImageIconManager.assetPath}/people_love1_image.png',
+                imagePath,
               ),
             ),
           ),
@@ -38,7 +42,9 @@ class ProfileDetailImageWidget extends StatelessWidget {
               MatchButtonWidget(
                 dimension: 20.0,
                 iconPath: 'icon_arrow_left.png',
-                onTap: () {},
+                onTap: () {
+                  Navigator.pop(context);
+                },
               ),
               Text(
                 'People You\nLoved',
