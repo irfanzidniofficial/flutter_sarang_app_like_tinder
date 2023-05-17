@@ -1,0 +1,4 @@
+#Sat Mar 11 21:58:37 WIB 2023
+base.0=/media/irfan/DATA (E)/Development/Flutter/flutter_sarang_app_like_tinder/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
